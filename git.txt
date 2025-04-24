@@ -1,0 +1,36 @@
+			
+			--------------- GIT CƠ BẢN-----------------
+			
+I. Cài đặt và cấu hình git
+- Tải xuống Git
+- Cấu hình :
+	+ Kiểm tra phiên bản : 		git --version
+	+ Xem toàn bộ cấu hình : 	git config --list
+	+ Cấu hình name và email: 	git config --global user.name "Your Name"
+								git config --global user.email "your@email.com"
+
+II. Git Local cơ bản : Lưu lại lịch sử code trong máy tính
+	+ Khởi tạo git : 			git init
+	+ Chọn file để commit: 		git add <file> hoặc git add .
+	+ Tạo commit : 				git commit -m "Mô tả commit"
+	+ Xem lịch sửu commit: 		git log
+								git log --oneline
+III. Git Repository : kho lưu trữ từ xa 
+	+ Tạo kho lưu trữ : Ví dụ Github, GitLab,...
+	+ Liên kết git Local với Repo : 
+								git remote add origin <link git repo>
+	+ Sửa liên kết :			git remote set-url origin <link repo mới>
+	+ Đổi tên nhánh : 			git branch -M <Tên nhánh mới>
+	+ Đẩy code lên git repo : 	git push -u origin <ten-nhanh>
+	
+IV. Git nâng cao : Hủy hoặc hoàn tác thay đổi trước commit
+	1.Khôi phục file về trạng thái từ commit gần nhất (huỷ thay đổi chưa add)
+				git restore <file>
+	2.Gỡ file khỏi stage (đã git add), nhưng giữ nội dung đang sửa
+				git restore --staged <file>
+	3.Huỷ stage hoặc commit:
+				git reset HEAD <file> : Gỡ file khỏi staging area
+				git reset --soft HEAD^ : Di chuyển HEAD lùi 1 commit, giữ lại thay đổi ở stage
+				git reset --hard HEAD^ : Di chuyển HEAD lùi 1 commit, xoá luôn thay đổi
+	4.git revert là cách "an toàn" để hoàn tác một commit mà không phá vỡ lịch sử.
+				git revert <commit-hash>
